@@ -44,11 +44,6 @@ tar zxvf zeppelin-0.6.2-bin-all.tgz
 cd zeppelin-0.6.2-bin-all/
 ./bin/install-interpreter.sh --all
 
-cat > /home/vagrant/zeppelin-0.6.2-bin-all/conf/zeppelin-env.sh <<EOF
-export ZEPPELIN_MEM="-Xmx1024m"
-export ZEPPELIN_JAVA_OPTS="-Dspark.home=/usr/local/spark"
-EOF
-
 cat > /etc/init/zeppelin.conf <<EOF
 description "zeppelin"
 start on (local-filesystems and net-device-up IFACE!=lo)
