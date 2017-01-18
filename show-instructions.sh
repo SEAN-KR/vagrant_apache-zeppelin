@@ -44,6 +44,8 @@ tar zxvf zeppelin-0.6.2-bin-all.tgz
 cd zeppelin-0.6.2-bin-all/
 ./bin/install-interpreter.sh --all
 
+sed -i "s/backend      : TkAgg/backend      : Agg/g" /etc/matplotlibrc
+
 cat > /etc/init/zeppelin.conf <<EOF
 description "zeppelin"
 start on (local-filesystems and net-device-up IFACE!=lo)
