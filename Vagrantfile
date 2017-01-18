@@ -40,7 +40,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Forward local host port 4040 to spark UI port 4040
   # Forward local host port 4000 to jekyll documentation port 4000
   # comment out the following lines to use a fixed IP
-  config.vm.network "forwarded_port", guest: 8080, host: 8000
+  config.vm.network "forwarded_port", guest: 8080, host: 8001
   config.vm.network "forwarded_port", guest: 4040, host: 4040
   config.vm.network "forwarded_port", guest: 4000, host: 4000
 
