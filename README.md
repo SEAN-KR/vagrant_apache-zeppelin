@@ -31,7 +31,7 @@ This script requires three applications, [Ansible](http://docs.ansible.com/ansib
 `sudo pip install ansible`
 `ansible --version` should now report version 1.9.2 or higher
 3. Install Virtual Box: [Virtual Box Downloads](https://www.virtualbox.org/ "Virtual Box")
-4. Type `vagrant up`  from within the `/scripts/vagrant/zeppelin-dev` directory
+4. Type `vagrant up`
 
 Thats it!
 
