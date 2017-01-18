@@ -11,6 +11,13 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
+
+# 프로젝트팀 을 위한 #Slack  
+Androidthings Slack 팀 그룹이 있습니다  
+참여하시고 싶으신 분은  
+https://androidthingskorea.herokuapp.com/  
+이메일주소를 입력하시면 초대장 발송됩니다  
+
 ## Vagrant Virtual Machine for Apache Zeppelin
   
 This script creates a virtual machine that launches a repeatable, known set of core dependencies required for developing Zeppelin.  It can also be used to run an existing Zeppelin build if you don't plan to build from source.
@@ -91,9 +98,9 @@ mvn clean package -Pspark-1.6 -Ppyspark -Phadoop-2.4 -Psparkr -DskipTests
 ./bin/zeppelin-daemon.sh start
 ```
 
-On your host machine browse to `http://localhost:8080/`
+On your host machine browse to `http://localhost:8001/`
 
-If you [turned off port forwarding](#tweaking-the-virtual-machine) in the `Vagrantfile` browse to `http://192.168.51.52:8080`
+If you [turned off port forwarding](#tweaking-the-virtual-machine) in the `Vagrantfile` browse to `http://192.168.51.52:8001`
 
 
 ### Tweaking the Virtual Machine
@@ -103,7 +110,7 @@ If you plan to run this virtual machine along side other Vagrant images, you may
 Comment out the `forward_port` line, and uncomment the `private_network` line in Vagrantfile.  The subnet that works best for your local network will vary so adjust `192.168.*.*` accordingly.
 
 ```
-#config.vm.network "forwarded_port", guest: 8080, host: 8080
+#config.vm.network "forwarded_port", guest: 8080, host: 8001
 config.vm.network "private_network", ip: "192.168.51.52"
 ```
 
