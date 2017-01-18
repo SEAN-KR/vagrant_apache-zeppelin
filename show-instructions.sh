@@ -39,3 +39,26 @@ echo './bin/zeppelin-daemon.sh start'
 echo
 echo 'On your host machine browse to http://localhost:8080/'
 
+wget http://mirror.apache-kr.org/zeppelin/zeppelin-0.6.2/zeppelin-0.6.2-bin-all.tgz
+tar zxvf zeppelin-0.6.2-bin-all.tgz
+cd zeppelin-0.6.2-bin-all/
+./bin/install-interpreter.sh --all
+
+cat > /home/vagrant/zeppelin-0.6.2-bin-all/conf/zeppelin-env.sh <<EOF
+export ZEPPELIN_MEM="-Xmx1024m"
+export ZEPPELIN_JAVA_OPTS="-Dspark.home=/usr/local/spark"
+EOF
+
+cat > /etc/init/zeppelin.conf <<EOF
+description "zeppelin"
+start on (local-filesystems and net-device-up IFACE!=lo)
+stop on shutdown
+respawn
+respawn limit 7 5
+chdir /home/vagrant/zeppelin-0.6.2-bin-all
+exec bin/zeppelin-daemon.sh upstart
+EOF
+
+service zeppelin start
+
+
